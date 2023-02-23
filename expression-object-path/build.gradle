@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+group 'io.github.slince'
+version "${version}"
+
+dependencies {
+    implementation project(":expression")
+}

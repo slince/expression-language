@@ -1,0 +1,6 @@
+rootProject.name = 'expression-parent'
+
+include 'expression'
+include 'expression-core'
+include 'expression-object-path'
+

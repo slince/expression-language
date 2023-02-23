@@ -1,0 +1,79 @@
+plugins {
+    id 'java'
+}
+
+group 'io.github.slince'
+version "${version}"
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+                afterEvaluate {
+                    artifactId = jar.baseName
+                }
+
+                pom {
+                    name = jar.baseName
+                    description = project.description
+                    url = 'https://github.com/slince/expression'
+
+                    licenses {
+                        license {
+                            name = "The Apache Software License, Version 2.0"
+                            url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                            distribution = "repo"
+                        }
+                    }
+
+                    scm {
+                        url = 'scm:git:git://github.com/slince/expression.git'
+                        connection = 'scm:git:git://github.com/slince/expression.git'
+                        developerConnection = 'scm:git:git://github.com/slince/expression.git'
+                    }
+
+                    developers {
+                        developer {
+                            id = 'slinc'
+                            name = 'Slince'
+                            email = 'taosikai@yeah.net'
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+        
+        implementation("org.apache.commons:commons-lang3:3.12.0")
+        implementation('org.apache.commons:commons-collections4:4.3')
+
+        compileOnly 'org.projectlombok:lombok:1.18.24'
+        annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+        testCompileOnly 'org.projectlombok:lombok:1.18.24'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
