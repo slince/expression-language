@@ -1,7 +1,7 @@
 
 allprojects {
     group 'io.github.slince'
-    version getProperty('projectVersion') ?: System.getenv('PROJECT_VERSION')
+    version findProperty('projectVersion') ?: System.getenv('PROJECT_VERSION')
 }
 
 subprojects {
