@@ -3,8 +3,8 @@ name: Gradle Publish
 on:
   push:
     tags:
-      - '*-RELEASE'
-      - '*-SNAPSHOT'
+      - '**-RELEASE'
+      - '**-SNAPSHOT'
 
 permissions:
   contents: read
