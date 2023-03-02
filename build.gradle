@@ -26,10 +26,12 @@ subprojects {
     }
 
     task projectDetail {
-        println project.name
-        println project.group
-        println project.version
-        println project.description
+        afterEvaluate {
+            println project.name
+            println project.group
+            println project.version
+            println project.description
+        }
     }
 
     javadoc {
