@@ -32,7 +32,6 @@ jobs:
           base64 -d ~/.gradle/secring.gpg.b64 > ~/.gradle/secring.gpg
 
       - name: Get version
-        id: get_version
         run: | 
           echo "JAR_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
           echo "Version ${{ env.JAR_VERSION }}"
