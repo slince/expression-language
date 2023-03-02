@@ -14,7 +14,7 @@ An expressive expression engine.
 <dependency>
     <groupId>io.github.slince</groupId>
     <artifactId>expression</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-RELEASE</version>
 </dependency>
 ```
 ObjectPath:
@@ -23,7 +23,7 @@ ObjectPath:
 <dependency>
     <groupId>io.github.slince</groupId>
     <artifactId>expression-data-path</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-RELEASE</version>
 </dependency>
 ```
 ObjectPath [Documentation](./docs/zh_CN/objectpath.md)；

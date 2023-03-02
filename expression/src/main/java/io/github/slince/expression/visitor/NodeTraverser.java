@@ -17,6 +17,11 @@ final public class NodeTraverser {
         this.visitors = visitors;
     }
 
+    /**
+     * Traverse the given node.
+     * @param node the ast node
+     * @return alternate node
+     */
     public Node traverse(Node node){
         for (NodeVisitor visitor : visitors) {
             node = this.traverseNode(visitor, node, new NodeMetadataCollection());

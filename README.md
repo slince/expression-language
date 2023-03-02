@@ -14,7 +14,7 @@
 <dependency>
     <groupId>io.github.slince</groupId>
     <artifactId>expression</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-RELEASE</version>
 </dependency>
 ```
 
@@ -24,7 +24,7 @@ ObjectPath:
 <dependency>
     <groupId>io.github.slince</groupId>
     <artifactId>expression-data-path</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-RELEASE</version>
 </dependency>
 ```
 ObjectPath 使用文档见[这里](./docs/zh_CN/objectpath.md)；
