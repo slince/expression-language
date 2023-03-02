@@ -33,12 +33,14 @@ jobs:
 
       - name: Get version
         id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+        run: | 
+          echo "JAR_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+          echo "Version ${{ env.JAR_VERSION }}"
 
       - name: Publish to maven
         run: ./gradlew publish -P signing.keyId=${{ secrets.SIGNING_KEY_ID }} -P signing.password=${{ secrets.SIGNING_PASSWORD }} -P signing.secretKeyRingFile=$(echo ~/.gradle/secring.gpg)
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-          VERSION: ${{ steps.get_version.outputs.VERSION }}
+          VERSION: ${{ env.JAR_VERSION }}
 
