@@ -15,22 +15,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: '8'
-        distribution: 'temurin'
-        
-    - name: Get version
-      run: | 
-        echo "JAR_VERSION=${GITHUB_REF/refs\/branches\//}" >> $GITHUB_ENV
-        echo JAR_VERSION2=${GITHUB_REF/refs\/branches\//} >> $GITHUB_ENV
-        echo "JAR_VERSION3=xxx" >> $GITHUB_ENV
-        echo JAR_VERSION4=${GITHUB_REF} >> $GITHUB_ENV
-        echo "Version ${{ env.JAR_VERSION }} ${{ env.JAR_VERSION2 }} ${{ env.JAR_VERSION3 }} ${{ env.JAR_VERSION4 }}"
-          
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: build
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+      
+      - name: Set the value
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.action_state }}"
+
+      - name: Get version
+        run: | 
+          echo "JAR_VERSION=${GITHUB_REF/refs\/branches\//}" >> $GITHUB_ENV
+          echo JAR_VERSION2=${GITHUB_REF/refs\/branches\//} >> $GITHUB_ENV
+          echo "JAR_VERSION3=xxx" >> $GITHUB_ENV
+          echo JAR_VERSION4=${GITHUB_REF} >> $GITHUB_ENV
+          echo "Version ${{ env.JAR_VERSION }} ${{ env.JAR_VERSION2 }} ${{ env.JAR_VERSION3 }} ${{ env.JAR_VERSION4 }}"
+
+      - name: Output version
+        run: | 
+          echo "Version ${{ env.JAR_VERSION }} ${{ env.JAR_VERSION2 }} ${{ env.JAR_VERSION3 }} ${{ env.JAR_VERSION4 }}"
+
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: build
