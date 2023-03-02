@@ -1,3 +1,4 @@
+description = 'An expressive expression language'
 
 dependencies {
     implementation project(":expression-core")

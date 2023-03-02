@@ -1,3 +1,4 @@
+description = "Expression-based object property accessor"
 
 dependencies {
     implementation project(":expression")

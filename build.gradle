@@ -25,9 +25,15 @@ subprojects {
         from javadoc.destinationDir
     }
 
-    javadoc {
-        description = "Generates project-level javadoc for use in -javadoc jar"
+    task projectDetail {
+        println project.name
+        println project.group
+        println project.version
+        println project.description
+    }
 
+    javadoc {
+        description = project.description
         options.memberLevel = JavadocMemberLevel.PROTECTED
         options.author = true
         options.version = true

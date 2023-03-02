@@ -1,3 +1,4 @@
+description = "Core utils used in expression"
 
 dependencies {
     implementation('org.springframework:spring-core:5.3.14')
