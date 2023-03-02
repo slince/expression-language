@@ -1,9 +1,8 @@
-plugins {
-    id 'java'
-}
 
-group 'io.github.slince'
-version getProperty('version') ?: System.getenv('VERSION')
+allprojects {
+    group 'io.github.slince'
+    version getProperty('version') ?: System.getenv('VERSION')
+}
 
 subprojects {
 
