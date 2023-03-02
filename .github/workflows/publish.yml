@@ -31,6 +31,9 @@ jobs:
           echo "${{ secrets.SIGNING_SECRET_KEY_RING_FILE }}" > ~/.gradle/secring.gpg.b64
           base64 -d ~/.gradle/secring.gpg.b64 > ~/.gradle/secring.gpg
 
+      - name: Version
+        run: echo "Version ${{ github.ref }}"
+
       - name: Publish to maven
         run: ./gradlew publish -P signing.keyId=${{ secrets.SIGNING_KEY_ID }} -P signing.password=${{ secrets.SIGNING_PASSWORD }} -P signing.secretKeyRingFile=$(echo ~/.gradle/secring.gpg)
         env:
