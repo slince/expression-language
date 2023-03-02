@@ -33,15 +33,15 @@ jobs:
           base64 -d ~/.gradle/secring.gpg.b64 > ~/.gradle/secring.gpg
 
       - name: Get version
-        run: echo "MAIN_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+        run: echo "PROJECT_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
       - name: Output Version
-        run: echo "Version ${{ env.MAIN_VERSION }}"
+        run: echo "Version ${{ env.PROJECT_VERSION }}"
 
       - name: Publish to maven
         run: ./gradlew publish -P signing.keyId=${{ secrets.SIGNING_KEY_ID }} -P signing.password=${{ secrets.SIGNING_PASSWORD }} -P signing.secretKeyRingFile=$(echo ~/.gradle/secring.gpg)
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-          MAIN_VERSION: ${{ env.MAIN_VERSION }}
+          PROJECT_VERSION: ${{ env.PROJECT_VERSION }}
 
