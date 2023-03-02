@@ -2,7 +2,7 @@ name: Gradle Publish
 
 on:
   push:
-    tags: ["[\d\.]+\-(RELEASE|SNAPSHOT)"]
+    tags: ["*\\-(RELEASE|SNAPSHOT)"]
 
 
 permissions:
