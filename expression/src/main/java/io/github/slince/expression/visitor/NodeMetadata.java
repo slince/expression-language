@@ -1,12 +1,14 @@
 package io.github.slince.expression.visitor;
 
 import io.github.slince.expression.ast.Node;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RequiredArgsConstructor
+@Getter
 final public class NodeMetadata {
 
     private final Node node;

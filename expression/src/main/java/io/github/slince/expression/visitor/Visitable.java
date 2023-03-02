@@ -2,7 +2,7 @@ package io.github.slince.expression.visitor;
 
 import io.github.slince.expression.ast.Node;
 
-public interface VisitorAware {
+public interface Visitable {
 
      void visit(Visitor visitor);
 

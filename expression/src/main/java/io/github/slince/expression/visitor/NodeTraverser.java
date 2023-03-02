@@ -19,17 +19,28 @@ final public class NodeTraverser {
 
     public Node traverse(Node node){
         for (NodeVisitor visitor : visitors) {
-            node = this.traverseNode(visitor, node);
+            node = this.traverseNode(visitor, node, new NodeMetadataCollection());
         }
         return node;
     }
 
-    private Node traverseNode(NodeVisitor visitor, Node node){
+    private Node traverseNode(NodeVisitor visitor, Node node, NodeMetadataCollection metas){
         NodeMetadata metadata = new NodeMetadata(node);
-        node = visitor.enterNode(node, metadata);
-        if (node instanceof VisitorAware) {
-            ((VisitorAware) node).visit(v -> this.traverseNode(visitor, v));
+        metas.addMetadata(metadata);
+
+        Node entered = visitor.enterNode(node, metas);
+        if (entered != node) {
+            return this.traverseNode(visitor, entered, metas);
         }
-        return visitor.leaveNode(node, metadata);
+
+        if (node instanceof Visitable) {
+            ((Visitable) node).visit(n -> this.traverseNode(visitor, n, metas));
+        }
+
+        Node leaved = visitor.leaveNode(node, metas);
+        if (leaved != node) {
+            return this.traverseNode(visitor, leaved, metas);
+        }
+        return leaved;
     }
 }

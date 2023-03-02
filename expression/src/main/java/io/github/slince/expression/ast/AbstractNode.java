@@ -1,11 +1,11 @@
 package io.github.slince.expression.ast;
 
 import io.github.slince.expression.Position;
-import io.github.slince.expression.visitor.VisitorAware;
+import io.github.slince.expression.visitor.Visitable;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-abstract public class AbstractNode implements Node, VisitorAware {
+abstract public class AbstractNode implements Node, Visitable {
 
     protected Position position;
 
