@@ -96,7 +96,7 @@ subprojects {
                         description = project.description
                     }
 
-                    url = 'https://github.com/slince/expression'
+                    url = 'https://github.com/slince/expression-language'
 
                     licenses {
                         license {
@@ -107,9 +107,9 @@ subprojects {
                     }
 
                     scm {
-                        url = 'scm:git:git://github.com/slince/expression.git'
-                        connection = 'scm:git:git://github.com/slince/expression.git'
-                        developerConnection = 'scm:git:git://github.com/slince/expression.git'
+                        url = 'scm:git:git://github.com/slince/expression-language.git'
+                        connection = 'scm:git:git://github.com/slince/expression-language.git'
+                        developerConnection = 'scm:git:git://github.com/slince/expression-language.git'
                     }
 
                     developers {
