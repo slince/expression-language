@@ -2,9 +2,9 @@
 
 An expressive expression engine.
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/slince/expression/ci.yml?style=flat-square)](https://github.com/slince/expression/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/slince/expression-language/ci.yml?style=flat-square)](https://github.com/slince/expression-language/actions)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.slince.expression/expression?style=flat-square)](https://maven-badges.herokuapp.com/maven-central/io.github.slince.expression/expression)
-[![LICENSE](https://img.shields.io/github/license/slince/expression?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![LICENSE](https://img.shields.io/github/license/slince/expression-language?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 [中文说明/Chinese Documentation](./README.md)
 
